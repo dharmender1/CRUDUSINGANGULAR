@@ -1,4 +1,24 @@
 <?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://jsonplaceholder.typicode.com/posts/1");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_VERBOSE, true); // Enable detailed error logs
+
+$response = curl_exec($ch);
+
+if ($response === false) {
+    echo "cURL Error: " . curl_error($ch);
+} else {
+    echo "Response: " . $response;
+}
+
+curl_close($ch);
+?>
+
+
+
+
+<?php
 
 /**
  * Laravel - A PHP Framework For Web Artisans
